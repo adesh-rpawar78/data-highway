@@ -1,0 +1,16 @@
+services:
+  datahighway:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      WORKERS: "64"
+      QUEUE_SIZE: "10000"
+      API_KEY: "changeme"
+
+  # Optional: only needed if you switch to PostgresStore (see
+  # internal/store/postgres.go). Start with: docker compose --profile pg up
+
+volumes:
+  pgdata:
